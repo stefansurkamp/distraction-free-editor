@@ -31,6 +31,9 @@ const App = () => {
 
   return (
     <div className="App">
+      <a href={`data:text/plain;charset=utf-8,${text}`} download="freewrite.txt">
+        <div className="Download"></div>
+      </a>
       <div className="CompleteTextWrapper">
         <div className="CompleteText">
           {text.split("\n").map((paragraph, index) => (
