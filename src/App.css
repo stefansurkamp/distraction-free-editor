@@ -4,9 +4,36 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: bisque;
+  background: hsl(0deg 100% 88%);
   display: flex;
   flex-direction: column;
+  animation: colorRotation 120s infinite;
+  animation-direction: alternate;
+}
+
+@keyframes colorRotation {
+  0% {background-color: hsl(0deg 100% 88%);}
+  5% {background-color: hsl(18deg 100% 88%);}
+  10% {background-color: hsl(36deg 100% 88%);}
+  15% {background-color: hsl(54deg 100% 88%);}
+  20% {background-color: hsl(72deg 100% 88%);}
+  25% {background-color: hsl(90deg 100% 88%);}
+  30% {background-color: hsl(108deg 100% 88%);}
+  35% {background-color: hsl(126deg 100% 88%);}
+  40% {background-color: hsl(144deg 100% 88%);}
+  45% {background-color: hsl(162deg 100% 88%);}
+  50% {background-color: hsl(180deg 100% 88%);}
+  55% {background-color: hsl(198deg 100% 88%);}
+  60% {background-color: hsl(216deg 100% 88%);}
+  65% {background-color: hsl(234deg 100% 88%);}
+  70% {background-color: hsl(252deg 100% 88%);}
+  75% {background-color: hsl(270deg 100% 88%);}
+  80% {background-color: hsl(288deg 100% 88%);}
+  85% {background-color: hsl(306deg 100% 88%);}
+  90% {background-color: hsl(324deg 100% 88%);}
+  95% {background-color: hsl(342deg 100% 88%);}
+  100% {background-color: hsl(360deg 100% 88%);}
+
 }
 
 .CompleteTextWrapper {
@@ -18,6 +45,7 @@
 .CompleteText {
   overflow: hidden;
   color: rgba(255, 255, 255, 0.5);
+  color: rgba(0,0,0, 0.2);
   pointer-events: none;
   user-select: none;
 }

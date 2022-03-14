@@ -2,10 +2,19 @@ import { useState } from "react";
 import "./App.css";
 
 const App = () => {
-  const [text, setText] = useState(
-    "lel k asd aslel k asd aslel k asd aslel k asd aslel k asd aslel k asd aslel k asd aslel k asd aslel k asd aslel k asd aslel k asd aslel k asd aslel k asd asas asd asd asd asd asd asd asd asd a3rqefwl fjoiqwej fioqwjf iowjfiweojv dkjweiofjoi wjfoiw jfoiw3jf oiwjfoiwj foiwjfoi j32fioj 3owifjoiw3f jo3ijf oi3jf iow3jfoi3jf ioj3f io now im curious w ow ici hchqiow"
-  );
+  const [text, setText] = useState("");
   const [word, setWord] = useState("");
+
+  const keyWasPressed = (e) => {
+    if (e.key === "Enter") {
+      setText(text + e.target.value + "\n");
+      setWord("");
+      document.querySelector(".CompleteTextWrapper").scroll({
+        top: document.querySelector(".CompleteTextWrapper").scrollHeight,
+        behavior: "smooth",
+      });
+    }
+  };
 
   const textHasChanged = (e) => {
     if (e.nativeEvent.data === " ") {
@@ -19,13 +28,25 @@ const App = () => {
       setWord(e.target.value);
     }
   };
+
   return (
     <div className="App">
       <div className="CompleteTextWrapper">
-        <div className="CompleteText">{text}</div>
+        <div className="CompleteText">
+          {text.split("\n").map((paragraph, index) => (
+            <p key={index}>{paragraph}</p>
+          ))}
+        </div>
       </div>
       <div className="WordInput">
-        <input type="text" onChange={textHasChanged} value={word} autofocus></input>
+        <input
+          type="text"
+          onChange={textHasChanged}
+          onKeyDown={keyWasPressed}
+          value={word}
+          autoFocus
+          tabIndex="0"
+        ></input>
       </div>
     </div>
   );
